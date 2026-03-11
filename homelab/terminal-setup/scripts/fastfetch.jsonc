@@ -1,0 +1,13 @@
+{
+  "logo": {
+    "type": "none"
+  },
+  "modules": [
+    "os",
+    "kernel",
+    "cpu",
+    "memory",
+    "uptime",
+    "localip"
+  ]
+}

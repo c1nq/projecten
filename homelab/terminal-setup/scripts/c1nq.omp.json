@@ -1,0 +1,57 @@
+{
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "#FF0000",
+          "background": "#0D0000",
+          "template": " \ue70f "
+        },
+        {
+          "type": "text",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#FF0000",
+          "background": "#1A0000",
+          "template": " \uf6d7 c1nq "
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#FFB3B3",
+          "background": "#330000",
+          "template": " \uf07c {{ .Path }} "
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#FF6B6B",
+          "background": "#1A0000",
+          "template": " \ue0a0 {{ .HEAD }} "
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#FF0000",
+          "template": "\ue0b4 "
+        }
+      ]
+    }
+  ],
+  "final_space": true
+}
