@@ -1,0 +1,9 @@
+Host <servernaam>
+    HostName <ip-adres>
+    User <gebruikersnaam>
+    Port <poort>
+
+Host <servernaam2>
+    HostName <ip-adres>
+    User <gebruikersnaam>
+    Port <poort>
