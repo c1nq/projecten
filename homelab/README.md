@@ -2,4 +2,6 @@
 Eigen lab projecten.
 
 ## Projecten
-- Terminal Setup
+- [Terminal Setup](./terminal-setup)
+- [WSL2 - Ubuntu](./wsl)
+- [SSH Config](./ssh)
