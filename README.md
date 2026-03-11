@@ -1,4 +1,4 @@
-# c1nq - Projecten
+# C1NQ - Projecten
 
 Persoonlijke homelab en engineering projecten.
 
