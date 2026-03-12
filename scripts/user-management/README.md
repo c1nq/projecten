@@ -21,3 +21,6 @@ Alle acties worden gelogd in `user-management.log`
 
 ## Rapport
 Optie 5 genereert een CSV rapport van alle gebruikers
+
+## Preview
+![User Management Tool](./screenshots/preview.png)
