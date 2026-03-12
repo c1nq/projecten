@@ -1,0 +1,12 @@
+[2026-03-12 21:33:31] [INFO] Backup script gestart door c1nqc
+[2026-03-12 21:34:14] [INFO] Configuratie opgeslagen
+[2026-03-12 21:34:14] [INFO] Backup gestart van 'projecten' naar ''
+[2026-03-12 21:34:14] [ERROR] Bronmap bestaat niet: projecten
+[2026-03-12 21:35:03] [INFO] Backup script afgesloten
+[2026-03-12 21:35:07] [INFO] Backup script gestart door c1nqc
+[2026-03-12 21:35:09] [INFO] Backup gestart van 'projecten' naar ''
+[2026-03-12 21:35:09] [ERROR] Bronmap bestaat niet: projecten
+[2026-03-12 21:35:53] [INFO] Configuratie opgeslagen
+[2026-03-12 21:35:58] [INFO] Backup gestart van 'C:\Users\c1nqc\Documents\Projecten' naar 'C:\Users\c1nqc\Documents\Backups\backup-20260312-213558'
+[2026-03-12 21:35:58] [INFO] Backup succesvol — 44 bestanden gekopieerd naar 'C:\Users\c1nqc\Documents\Backups\backup-20260312-213558'
+[2026-03-12 21:41:33] [INFO] Backup script afgesloten
