@@ -56,3 +56,10 @@ PowerShell script voor automatisch backuppen van mappen met logging en rotatie.
 PowerShell script voor automatisch backuppen van mappen met logging en rotatie.
 
 ![Backup Script](./scripts/backup/screenshots/preview.png)
+
+---
+
+## Network Scanner
+PowerShell script dat razendsnel het netwerk scant — hostname, MAC adres en ping tijd per apparaat.
+
+![Network Scanner](./scripts/network-scanner/screenshots/preview.png)
