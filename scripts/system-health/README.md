@@ -20,3 +20,6 @@ Uitvoeren als Administrator:
 - OK - Groen
 - WAARSCHUWING - Geel (>75%)
 - KRITIEK - Rood (>90%)
+
+## Preview
+![System Health Check](./screenshots/preview.png)

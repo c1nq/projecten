@@ -35,3 +35,10 @@ PowerShell script voor het beheren van lokale Windows gebruikers met logging en 
 ## Contact
 - GitHub: [c1nq](https://github.com/c1nq)
 - Email: c1nqict@gmail.com
+
+---
+
+## System Health Check
+PowerShell script voor automatische gezondheidscontrole — CPU, RAM, schijf, services en netwerk.
+
+![System Health Check](./scripts/system-health/screenshots/preview.png)
