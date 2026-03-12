@@ -1,4 +1,4 @@
-# C1NQ - Projecten
+# c1nq - Projecten
 
 Persoonlijke homelab en engineering projecten.
 
@@ -22,6 +22,13 @@ Ubuntu WSL2 setup gesynchroniseerd met Windows terminal.
 SSH key authenticatie en config voor servers zonder wachtwoord.
 
 ![SSH Setup](./homelab/ssh/screenshots/preview.png)
+
+---
+
+## User Management Tool
+PowerShell script voor het beheren van lokale Windows gebruikers met logging en rapportage.
+
+![User Management](./scripts/user-management/screenshots/preview.png)
 
 ---
 
