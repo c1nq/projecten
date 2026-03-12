@@ -42,3 +42,10 @@ PowerShell script voor het beheren van lokale Windows gebruikers met logging en 
 PowerShell script voor automatische gezondheidscontrole — CPU, RAM, schijf, services en netwerk.
 
 ![System Health Check](./scripts/system-health/screenshots/preview.png)
+
+---
+
+## Backup Script
+PowerShell script voor automatisch backuppen van mappen met logging en rotatie.
+
+![Backup Script](./scripts/backup/screenshots/preview.png)
