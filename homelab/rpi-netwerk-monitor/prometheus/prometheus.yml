@@ -1,0 +1,71 @@
+global:
+  scrape_interval: 30s
+  evaluation_interval: 30s
+  external_labels:
+    monitor: 'rpi-netmonitor'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['localhost:9093']
+
+rule_files:
+  - /etc/prometheus/alerts.yml
+
+scrape_configs:
+
+  # RPi zelf: CPU, RAM, temp, disk, netwerk
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ["localhost:9100"]
+    scrape_interval: 15s
+
+  # Ping checks: alle LAN devices + internet
+  - job_name: 'blackbox-ping'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    static_configs:
+      - targets:
+          - 192.168.1.254       # Router (pas aan naar jouw IP!)
+          - 8.8.8.8           # Google DNS (WAN check)
+          - 1.1.1.1           # Cloudflare DNS (WAN check)
+          - 192.168.1.99
+          # Voeg hier je eigen devices toe:
+          # - 192.168.1.2540    # NAS
+          # - 192.168.1.20    # Smart TV
+          # - 192.168.1.30    # Printer
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+
+  # HTTP checks
+  - job_name: 'blackbox-http'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+          - https://google.com
+          - https://github.com
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+
+  # Pi-hole stats
+  - job_name: 'pihole'
+    static_configs:
+      - targets: ['localhost:9617']
+
+  # Prometheus zelf
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']

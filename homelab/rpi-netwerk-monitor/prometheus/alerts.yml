@@ -1,0 +1,70 @@
+groups:
+  - name: network_alerts
+    rules:
+
+      # Device offline
+      - alert: DeviceOffline
+        expr: probe_success{job="blackbox-ping"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Device offline: {{ $labels.instance }}"
+          description: "{{ $labels.instance }} reageert niet op ping al 2 minuten."
+
+      # Website/service offline
+      - alert: ServiceOffline
+        expr: probe_success{job="blackbox-http"} == 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Service offline: {{ $labels.instance }}"
+          description: "HTTP check mislukt voor {{ $labels.instance }}"
+
+      # Hoge ping latency
+      - alert: HighLatency
+        expr: probe_duration_seconds{job="blackbox-ping"} > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Hoge latency naar {{ $labels.instance }}"
+          description: "Latency is {{ $value | humanizeDuration }} (>100ms)"
+
+      # RPi CPU te hoog
+      - alert: HighCPU
+        expr: 100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "RPi CPU hoog ({{ $value | humanize }}%)"
+
+      # RPi te warm (>75°C)
+      - alert: RPiTooHot
+        expr: node_thermal_zone_temp > 75
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "RPi temperatuur kritiek: {{ $value }}°C"
+
+      # Schijf bijna vol (>85%)
+      - alert: DiskAlmostFull
+        expr: (node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100 < 15
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Schijf bijna vol op {{ $labels.mountpoint }}"
+          description: "Nog maar {{ $value | humanize }}% vrij."
+
+      # RAM hoog (>90%)
+      - alert: HighMemory
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 90
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "RAM gebruik hoog: {{ $value | humanize }}%"

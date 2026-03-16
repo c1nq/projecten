@@ -1,0 +1,23 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ["alertname", "severity"]
+  group_wait: 1s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: "discord"
+
+receivers:
+  - name: "discord"
+    discord_configs:
+      - webhook_url: "https://discord.com/api/webhooks/1482505421892616196/5I7Z97p5XPKuMq_Z3ULUzwjA4BHXu763Ih50NvLVvJixRe2zz-6-tSeFX8oeJ24d80XR"
+        title: "RPi Alert: {{ .GroupLabels.alertname }}"
+        message: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ .Annotations.description }}\n{{ end }}"
+
+inhibit_rules:
+  - source_match:
+      severity: "critical"
+    target_match:
+      severity: "warning"
+    equal: ["alertname"]
